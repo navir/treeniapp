@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <title>Muokkaa harjoitusta</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link type="text/css" rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+</head>
+
+<body>
+  <div style="padding-left: 40%;">
+    <h1>Muokkaa harjoitusta</h1>
+    <form th:object="${treeni}" th:action="@{../tallennatreeni}" action="#" method="post">
+
+      <input type="hidden" th:field="*{id}"/>
+
+      <label for="kesto">Kesto</label>
+      <input type="text" id="kesto" th:field="*{kesto}" />
+      <div style="clear: both; display: block; height: 10px;"></div>
+
+      <label for="pvm">Päivämäärä</label>
+      <input type="text" id="pvm" th:field="*{pvm}" />
+      <div style="clear: both; display: block; height: 10px;"></div>
+
+
+      <input type="submit" value="Tallenna" class="btn btn-success"></input>
+    </form>
+  </div>
+</body>
+
+</html>

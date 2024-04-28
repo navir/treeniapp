@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <title>Lisaa uusi treeni</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link type="text/css" rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+</head>
+
+<body>
+  <div style="padding-left: 45%;">
+    <h1>Lisää harjoitus</h1>
+    <form th:object="${treeni}" th:action="@{tallennatreeni}" action="#" method="post">
+
+      <label for="treenityyppidroplist">Treenityyppi</label>
+      <select id="treenityyppidroplist" th:field="*{treenityyppi}" class="form-control" style="width: 200px;">
+        <option th:each="treenityyppi: ${treenityypit}" th:value="${treenityyppi.tyyppid}" th:text="${treenityyppi.name}">
+        </option>
+      </select>
+      <div style="clear: both; display: block; height: 10px;"></div>
+
+      <label for="kesto">Kesto</label>
+      <input type="text" id="kesto" th:field="*{kesto}" />
+      <div style="clear: both; display: block; height: 10px;"></div>
+
+      <label for="pvm">Päivämäärä</label>
+      <input type="text" id="pvm" th:field="*{pvm}" />
+      <div style="clear: both; display: block; height: 10px;"></div>
+
+      <input type="submit" value="Save" class="btn btn-success"></input>
+    </form>
+  </div>
+</body>
+
+</html>
