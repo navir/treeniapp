@@ -15,18 +15,28 @@ public class Treeni {
   private Long id;
   private String kesto;
   private String pvm;
+  private String kuvaus;
 
   @ManyToOne
-  @JoinColumn(name = "tyyppiid")
+  @JoinColumn(name = "tyyppid")
   private Treenityyppi treenityyppi;
 
   public Treeni() {
   }
 
-  public Treeni(Treenityyppi treenityyppi, String kesto, String pvm) {
+  public Treeni(Treenityyppi treenityyppi, String kesto, String pvm, String kuvaus) {
     this.treenityyppi = treenityyppi;
     this.pvm = pvm;
     this.kesto = kesto;
+    this.kuvaus = kuvaus;
+  }
+
+  public String getKuvaus() {
+    return kuvaus;
+  }
+
+  public void setKuvaus(String kuvaus) {
+    this.kuvaus = kuvaus;
   }
 
   public Long getId() {

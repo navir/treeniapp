@@ -38,10 +38,10 @@ public class TreeniappApplication {
 			trepository.save(tt3);
 			trepository.save(tt4);
 
-			repository.save(new Treeni(tt1, "60 min", "27.4.2024"));
-			repository.save(new Treeni(tt2, "60 min", "27.4.2024"));
-			repository.save(new Treeni(tt3, "60 min", "27.4.2024"));
-			repository.save(new Treeni(tt4, "60 min", "27.4.2024"));
+			repository.save(new Treeni(tt1, "45 min", "2024-04-20", "Kyykky 5x5 80kg"));
+			repository.save(new Treeni(tt2, "50 min", "2024-04-21", "Seurasaari"));
+			repository.save(new Treeni(tt3, "55 min", "2024-04-22", "Töölönlahti"));
+			repository.save(new Treeni(tt4, "60 min", "2024-04-23", "Munkkiniemi"));
 
 			AppUser user1 = new AppUser("user", "$2a$10$/9cTAHpoedkTQzDHRSXxOu0e6qyf/OoFeuTwj14nXHup2v.XnNNUq", "USER");
 			AppUser user2 = new AppUser("admin", "$2a$10$kRPO5iAA.ufmQAmOx7vDsOVP/lASS7ulalP1dhw5pq739QfA1tYza", "ADMIN");
