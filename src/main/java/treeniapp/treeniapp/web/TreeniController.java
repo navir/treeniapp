@@ -77,6 +77,7 @@ public class TreeniController {
     @GetMapping("/edit/{id}")
     public String editTreeni(@PathVariable("id") Long id, Model model) {
         model.addAttribute("treeni", repository.findById(id));
+        model.addAttribute("treenityypit", trepository.findAll());
         return "edittreeni";
     }
 

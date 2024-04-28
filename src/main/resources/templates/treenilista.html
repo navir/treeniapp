@@ -8,8 +8,9 @@
 </head>
 
 <body>
-    <!-- <h1>Welcome <span sec:authentication="name"></span>!</h1> -->
-    <h1>Treenit</h1>
+    <h1 style="padding-left: 10px;">Tervetuloa treenisovellukseen, <span sec:authentication="name"></span>!</h1> 
+    <div style="clear: both; display: block; height: 10px;"></div>
+    <h1 style="padding-left: 10px; color: brown;">Harjoitukset</h1>
     <table class="table table-striped">
         <tr>
             <th>Treeni</th>
@@ -24,15 +25,19 @@
             <td th:text="${treeni.treenityyppi.name}"></td>
             <td th:text="${treeni.kesto}"></td>
             <td th:text="${treeni.pvm}"></td>
-            <td><a th:href="@{/edit/{id}(id=${treeni.id})}" class="btn btn-success">Edit</a></td>
-            <td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/delete/{id}(id=${treeni.id})}" class="btn btn-danger">Delete</a></td>
+            <td><a th:href="@{/edit/{id}(id=${treeni.id})}" class="btn btn-success">Muokkaa</a></td>
+            <td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/delete/{id}(id=${treeni.id})}" class="btn btn-danger">Poista</a></td>
         </tr>
     </table>
-    <a href="/lisaatreeni" class="btn btn-success">Lisää uusi harjoitus</a>
-
-    <form th:action="@{/logout}" method="post">
-		<input class="btn btn-danger" type="submit" value="Sign Out" />
-	</form>
+    <div style="padding-left: 10px;">
+        <div style="clear: both; display: block; height: 10px;"></div>
+        <a href="/lisaatreeni" class="btn btn-success">Lisää uusi harjoitus</a>
+        <div style="clear: both; display: block; height: 10px;"></div>
+    
+        <form th:action="@{/logout}" method="post">
+            <input class="btn btn-danger" type="submit" value="Kirjaudu ulos" />
+        </form>
+    </div>
 
 </body>
 
