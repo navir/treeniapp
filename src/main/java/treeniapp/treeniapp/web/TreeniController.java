@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import treeniapp.treeniapp.model.Treeni;
 import treeniapp.treeniapp.model.TreeniRepository;
@@ -33,13 +32,13 @@ public class TreeniController {
         return "login";
     }
     
-    //REST hae kaikki kirjat
+    //REST hae kaikki treenit
     @GetMapping("/treenit")
     public @ResponseBody List<Treeni> getAllTreeniREST() {
         return (List<Treeni>) repository.findAll();
     }
     
-    //REST hae kirja ID:n perusteella
+    //REST hae treenit ID:n perusteella
     @GetMapping("/treenit/{id}")
     public @ResponseBody Optional<Treeni> getTreeniByIdREST(@PathVariable("id") Long id) {
         return repository.findById(id);
