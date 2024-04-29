@@ -17,7 +17,7 @@
             <th>Kesto</th>
             <th>Päivämäärä</th>
             <th>Kuvaus</th>
-            <th> </th>
+            <th>Date</th>
             <th> </th>
             <th> </th>
         </tr>
@@ -26,6 +26,7 @@
             <td th:text="${treeni.kesto}"></td>
             <td th:text="${treeni.pvm}"></td>
             <td th:text="${treeni.kuvaus}"></td>
+            <td th:text="${#temporals.format(treeni.date, 'dd.MM.yyyy')}"></td>
             <td><a th:href="@{/edit/{id}(id=${treeni.id})}" class="btn btn-success">Muokkaa</a></td>
             <td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/delete/{id}(id=${treeni.id})}" class="btn btn-danger">Poista</a></td>
         </tr>

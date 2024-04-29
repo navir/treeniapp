@@ -7,6 +7,16 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
+import java.time.LocalDate;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 public class Treeni {
 
@@ -17,6 +27,9 @@ public class Treeni {
   private String pvm;
   private String kuvaus;
 
+  @DateTimeFormat(pattern = "yyyy-MM-dd")
+  private LocalDate date;
+
   @ManyToOne
   @JoinColumn(name = "tyyppid")
   private Treenityyppi treenityyppi;
@@ -24,20 +37,17 @@ public class Treeni {
   public Treeni() {
   }
 
-  public Treeni(Treenityyppi treenityyppi, String kesto, String pvm, String kuvaus) {
-    this.treenityyppi = treenityyppi;
-    this.pvm = pvm;
+  
+
+  public Treeni(String kesto, String pvm, String kuvaus, LocalDate date, Treenityyppi treenityyppi) {
     this.kesto = kesto;
+    this.pvm = pvm;
     this.kuvaus = kuvaus;
+    this.date = date;
+    this.treenityyppi = treenityyppi;
   }
 
-  public String getKuvaus() {
-    return kuvaus;
-  }
 
-  public void setKuvaus(String kuvaus) {
-    this.kuvaus = kuvaus;
-  }
 
   public Long getId() {
     return id;
@@ -63,6 +73,22 @@ public class Treeni {
     this.pvm = pvm;
   }
 
+  public String getKuvaus() {
+    return kuvaus;
+  }
+
+  public void setKuvaus(String kuvaus) {
+    this.kuvaus = kuvaus;
+  }
+
+  public LocalDate getDate() {
+    return date;
+  }
+
+  public void setDate(LocalDate date) {
+    this.date = date;
+  }
+
   public Treenityyppi getTreenityyppi() {
     return treenityyppi;
   }
@@ -74,11 +100,10 @@ public class Treeni {
   @Override
   public String toString() {
     if (this.treenityyppi != null)
-      return "Treeni [id=" + id + ", kesto=" + kesto + ", pvm=" + pvm + ", treenityyppi=" + this.getTreenityyppi() + "]";
+      return "Treeni [id=" + id + ", kesto=" + kesto + ", pvm=" + pvm + ", treenityyppi=" + this.getTreenityyppi()
+          + "]";
     else
       return "Treeni [id=" + id + ", kesto=" + kesto + ", pvm=" + pvm + "]";
   }
-
-  
 
 }
